@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Christopher W. Pfohl</title>
+		<style>
+			* {
+				font-family: monospace;
+			}
+			body {
+				margin-top: 2em;
+				margin-left: 5%;
+				margin-right: 5%;
+				margin-bottom: 2em;
+			}
+			h2 {
+				padding: 4px;
+				/*
+					Gradient Produced by:
+					http://ie.microsoft.com/testdrive/graphics/cssgradientbackgroundmaker/default.html
+				*/
+				/* IE10 Consumer Preview */ 
+				background-image: -ms-linear-gradient(right, #FFFFFF 0%, #4448AB 40%, #0309AB 100%);
+
+				/* Mozilla Firefox */ 
+				background-image: -moz-linear-gradient(right, #FFFFFF 0%, #4448AB 40%, #0309AB 100%);
+
+				/* Opera */ 
+				background-image: -o-linear-gradient(right, #FFFFFF 0%, #4448AB 40%, #0309AB 100%);
+
+				/* Webkit (Safari/Chrome 10) */ 
+				background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #FFFFFF), color-stop(.4, #4448AB), color-stop(1, #0309AB));
+
+				/* Webkit (Chrome 11+) */ 
+				background-image: -webkit-linear-gradient(right, #FFFFFF 0%, #4448AB 40%, #0309AB 100%);
+
+				/* W3C Markup, IE10 Release Preview */ 
+				background-image: linear-gradient(to left, #FFFFFF 0%, #4448AB 40%, #0309AB 100%);
+				background-color: #0309AB;
+				color: white;
+			}
+			header {
+				margin-bottom: 2em;
+			}
+			body > *:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			.address {
+				float: left;
+				width: 50%;
+			}
+			.align-right {
+				text-align: right;
+			}
+			table {
+				border-collapse: collapse;
+			}
+			table td, table tr, table th{
+				border: 1px solid black;
+			}
+			thead {
+				font-weight: 900;
+				text-align: left;
+				background: #FFC;
+			}
+			.float-left {
+				float: left;
+				margin-right: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Christopher Pfohl</h1>
+			<div class='address'>
+				315-727-2142
+				<br />
+				<a href='mailto:christopher.pfohl@gmail.com'>christopher.pfohl@gmail.com</a>
+			</div>
+			<div class='address align-right'>
+				405 Brooklea Dr.
+				<br />
+				Fayetteville, NY 13066
+			</div>
+		</header>
+		<section>
+			<h2>Education</h2>
+			<div>
+				<h3><a href='http://www.gordon.edu'>Gordon College - Wenham, MA</a></h3>
+				<div>
+					<h4>Graduated Fall 2009</h4>
+					<div>
+						BS in Computer Science and Biblical Studies, Biblical Languages
+						Concentration.
+					</div>
+					<div>GPA: 3.94</div>
+				</div>
+				<div>
+					<h4>Scholarships and Honors</h4>
+					<ul>
+						<li>A.J. Gordon Scholar</li>
+						<li>Luke A. and Mary Moore Wood Memorial Scholarship</li>
+						<li>Presidential Honors</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h2>Experience</h2>
+			<div>
+				<h3><a href='http://www.breuer.com'>Breuer & Company</a></h3>
+				<div>
+					<div>Programmer Analyst</div>
+					<div>Sept 2010-Present</div>
+				</div>
+				<div>
+					<h4>Responsibilities</h4>
+					<ul>
+						<li>
+							Rewrote core tool used by all developers and several account managers to administer
+							structural and presentational metadata for consumption by Breuer & Company's core product, ES2.
+						</li>
+						<li>
+							Migrated all data for 5 new clients of <a href='http://www.veracross.com'>Veracross</a>
+							from their previous school information system to Breuer's in one summer; the most of any employee.
+						</li>
+						<li>
+							Wrote a photo upload web app for <a href='http://www.veracross.com'>Veracross</a>.
+							This enabled customers to manage their own photos, saving Breuer's support staff hours.
+						</li>
+						<li>
+							Co-wrote a Point of Service web app for <a href='http://www.valetude.com'>Valetude</a>
+							to help motivate and track receptionists' collection of past due accounts
+						</li>
+						<li>
+							Began total rewrite of ES2 (Breuer's core product) used by all Breuer's customers that enables
+							its users to query, view, and update their data. This involved a rewrite
+							of the SQL generator (which converts user designed queries to safe SQL that retrieves or
+							updates the requested data), and migrating the tool from a VB6 desktop app to the web.
+						</li>
+						<li>
+							Investigated new tools and wrote examples for other developers. Was chosen for these tasks
+							"because [I'm] fast" and thus could quickly enable my co-workers to release updates to Breuer's
+							software that took advantage of these new technologies.
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<h3><a href='http://www.bbn.com'>Raytheon, BBN Technologies</a></h3>
+				<div>
+					<div>Associate Scientist</div>
+					<div>Jan. 2010-Sept. 2010</div>
+				</div>
+				<div>
+					<h4>Responsibilities</h4>
+					<ul>
+						<li>
+							Wrote C++ and Python programs to solve Natural Language Processing (NLP) problems
+						</li>
+						<li>
+							Processed large portions of Wikipedia dumps to use as input to BBN's language
+							understanding systems
+						</li>
+						<li>
+							Increased scores of DARPA sponsored project well into passing range by
+							implementing genre detection system, ensuring continued funding.
+						</li>
+						<li>
+							Contributed to an update of BBN's coreference resolution system. Its accuracy
+							was brought up to the state of the art.
+						</li>
+						<li>
+							Worked with a cluster of 800 linux and windows machines to coordinate the running
+							of hundreds of jobs in parallel.
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<h3><a href='http://www.math-cs.gordon.edu'>Gordon College Math Department</a></h3>
+				<div>
+					<div>Software Developer</div>
+					<div>Summer 2008, 2009</div>
+				</div>
+				<div>
+					<h4>Responsibilities</h4>
+					<ul>
+						<li>
+							Assisted in research of stochastic processing networks (SPN) sponsored by the National Science
+							Foundation, Grant No. CMMI-0620787.
+						</li>
+						<li>
+							Combined numerous similar programs into <a href='http://www.math-cs.gordon.edu/qna/'>QNET
+							Approximator</a>, a user-friendly tool for calculating the optimal average cost of SPNs
+							using a novel application of approximate linear programming.
+						</li>
+						<li>
+							Wrote programs and scripts to numerically test mathematical theories being developed by other
+							members of the operations research team.
+						</li>
+						<li>
+							Produced documentation (general tutorial, individual manuals, and in-line) for
+							use by researchers.
+						</li>
+						<li>
+							Was credited for numeric work in <a href='http://faculty.gordon.edu/ns/mc/mike_veatch/documents/drift.pdf'>Russell et. al.</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h2>Skills and Technologies</h2>
+			<div>
+				<h3>Languages</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Language</th>
+							<th>Version/Libraries</th>
+							<th>Years Experience<a href='#note'>*</a></th>
+							<th>Comments</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>C#</td>
+							<td>3.0+, .NET3.5+, ASP.NET, MVC3, NancyFx, Dapper-Dot-Net, ADO.NET, Winforms (System.Windows.Forms)</td>
+							<td>2</td>
+							<td>Most recent primary language.</td>
+						</tr>
+						<tr>
+							<td>C++</td>
+							<td>C++98/03, stl, boost</td>
+							<td>1</td>
+							<td>Used on both Linux and Windows. Used at BBN and Gordon for tasks requiring highly performant code.</td>
+						</tr>
+						<tr>
+							<td>Python</td>
+							<td>2.6+, MediaWiki, PyUnit (package: unittest), easy_install</td>
+							<td>1.5</td>
+							<td>Used on both Linux and Windows. Used at BBN and Gordon for tasks requiring fast development. Used at Breuer for personal scripting needs.</td>
+						</tr>
+						<tr>
+							<td>SQL</td>
+							<td>T-Sql (SqlServer 2008 R2, including using SqlClr functionality), DB2 (academically)</td>
+							<td>2</td>
+							<td>Experience includes manual query writing, automatic generation of SQL code, large migration tasks, and data definition and manipulation.</td>
+						</tr>
+						<tr>
+							<td>HTML</td>
+							<td>HTML4, HTML5</td>
+							<td>2.25</td>
+							<td>Used extensively at Breuer and some at Gordon.</td>
+						</tr>
+						<tr>
+							<td>CSS</td>
+							<td>CSS2, exposure to CSS3</td>
+							<td>2.25</td>
+							<td>Used extensively at Breuer and some at Gordon.</td>
+						</tr>
+						<tr>
+							<td>Javascript</td>
+							<td>jQuery 1.5+(and its Ajax and JSON tools), Underscore, jQuery UI</td>
+							<td>2</td>
+							<td>Used extensively at Breuer.</td>
+						</tr>
+						<tr>
+							<td>VB6</td>
+							<td>n/a</td>
+							<td>Migrated tools from VB6 to C#</td>
+							<td>Reading only (for migration).</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h3>Tools</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Tool</th>
+							<th>Years Experience<a href='#note'>*</a></th>
+							<th>Comments</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Visual Studio 2008 and higher</td>
+							<td>3</td>
+							<td>Used at BBN and Breuer for C++ and C# Development.</td>
+						</tr>
+						<tr>
+							<td>Bash</td>
+							<td>3</td>
+							<td>Used at BBN as primary command line editor, and at Breuer through MinGW for git access and as a replacement for Windows' cmd.</td>
+						</tr>
+						<tr>
+							<td>Grep</td>
+							<td>1</td>
+							<td>Used at BBN and Gordon.</td>
+						</tr>
+						<tr>
+							<td>Emacs</td>
+							<td>1</td>
+							<td>Used at BBN as primary command line editor, and some at Breuer.</td>
+						</tr>
+						<tr>
+							<td>git</td>
+							<td>2</td>
+							<td>Used at Breuer and personally for source control.</td>
+						</tr>
+						<tr>
+							<td>svn</td>
+							<td>1</td>
+							<td>Used at BBN for source control.</td>
+						</tr>
+						<tr>
+							<td>LinqPad</td>
+							<td>1.5</td>
+							<td>Used at Breuer to fascilitate using C# as a scripting language.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<a name='note'><b>*</b>Years experience excludes time used for classwork</a>
+			</div>
+		</section>
+		<section>
+			<h2>Online Presence</h2>
+			<div class='float-left'>
+				<h3>Stack Overflow</h3>
+				<a href="http://stackoverflow.com/users/456188/christopher-pfohl">
+					<img src="http://stackoverflow.com/users/flair/456188.png?theme=clean" width="208" height="58" alt="StackOverflow Profile" title="StackOverflow profile">
+				</a>
+			</div>
+			<div class='float-left'>
+				<h3>GitHub</h3>
+				<a href='http://github.com/Crisfole'>
+					<img src='http://www.gravatar.com/avatar/ab34924e6d4e07371b890c5655c185a9' width='58' height='58' alt='GitHub Profile'></img>
+				</a>
+			</div>
+		</section>
+	</body>
+</html>
