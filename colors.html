@@ -27,7 +27,12 @@
             }
             $('#picker').spectrum({
                     flat: true,
-                    color: location.hash || '#ffffff'
+                    color: location.hash || '#ffffff',
+                    showInput: true,
+                    allowEmpty: false,
+                    showInitial: true,
+                    showButtons: false,
+                    preferredFormat: 'hex6',
                 })
                 .on('move.spectrum', updatePage)
                 .on('change', updatePage);
