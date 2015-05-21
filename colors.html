@@ -1,0 +1,37 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>#ffffff: Color</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.0/spectrum.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    </head>
+    <body>
+        <p>The background of this page is <span id='color-name'>#ffffff</span></p>
+        <input id='picker' type='color'/>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.0/spectrum.min.js'></script>
+        <script>
+            function updatePage(evt, newVal) {
+                newVal = newVal.toString("hex6");
+                $('body').css('background-color', newVal);
+                document.title = newVal + ": Color";
+                location.hash = newVal;
+                $('#color-name').text(newVal);
+            }
+            $('#picker').spectrum({
+                    flat: true,
+                    color: location.hash || '#ffffff'
+                })
+                .on('move.spectrum', updatePage)
+                .on('change', updatePage);
+            updatePage(null, tinycolor(location.hash));
+        </script>
+    </body>
+</html>
