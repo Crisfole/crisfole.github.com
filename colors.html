@@ -12,13 +12,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
     <body>
-        <p>The background of this page is <span id='color-name'>#ffffff</span></p>
+        <p id='explanatory'>The background of this page is <span id='color-name'>#ffffff</span></p>
         <input id='picker' type='color'/>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.0/spectrum.min.js'></script>
         <script>
             function updatePage(evt, newVal) {
+                $('#explanatory').css('color', tinycolor.mostReadable(newVal, ['#fff', 'yellow', 'red', 'green', '#000']).toString())
                 newVal = newVal.toString("hex6");
                 $('body').css('background-color', newVal);
                 document.title = newVal + ": Color";
