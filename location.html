@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<main>
+  <h1>Current Location</h1>
+  <div id='curr'></div>
+  <h2>History</h2>
+  <dl id='history'>
+  </dl>
+</main>
+<template id='history-item'>
+  <dt class='time'></dt>
+  <dd class='place'></dd>
+  </li>
+</template>
+<script>
+  var currText = null;
+  var currTime = null;
+  var watchID = navigator.geolocation.watchPosition(function(position) {
+    var text = JSON.stringify(position, null, 2);
+    var time = new Date;
+    
+    if (currText) {
+      var li = window['history-item'].content.cloneNode(true);
+      li.querySelector(".time").textContent = currText;
+      li.querySelector(".place").textContent = currTime;
+      window.history.prepend(li);
+    }
+
+    window.curr.textContent = text;
+
+    currText = text;
+    currTime = time;
+  });
+</script>
