@@ -14,7 +14,7 @@
 <script>
   var currText = null;
   var currTime = null;
-  var watchID = navigator.geolocation.watchPosition(function(position) {
+  function success(position) {
     var text = JSON.stringify(position, null, 2);
     var time = new Date;
     
@@ -29,5 +29,12 @@
 
     currText = text;
     currTime = time;
+  }
+  function error(err) {
+    window.curr.textContent = err;
+  }
+  var watchID = navigator.geolocation.watchPosition(success, error, {
+    enableHighAccuracy: true,
+    timeout: 30000
   });
 </script>
