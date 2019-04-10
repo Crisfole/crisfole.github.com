@@ -3,7 +3,7 @@
   <h1>Current Location</h1>
   <div id='curr'></div>
   <h2>History</h2>
-  <dl id='history'>
+  <dl id='history-list'>
   </dl>
 </main>
 <template id='history-item'>
@@ -22,7 +22,7 @@
       var li = window['history-item'].content.cloneNode(true);
       li.querySelector(".time").textContent = currText;
       li.querySelector(".place").textContent = currTime;
-      window.history.prepend(li);
+      window['history-list'].prepend(li);
     }
 
     window.curr.textContent = text;
