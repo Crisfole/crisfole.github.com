@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+</head>
+<body>
+  <button onclick='toggleFlashlight()'></button>
+  <template></template>
+  <script>
+    function toggleFlashlight() {
+      try {
+        navigator.mediaDevices.enumerateDevices().then(devices => {
+
+          const cameras = devices.filter((device) => device.kind === 'videoinput');
+
+          if (cameras.length === 0) {
+            throw 'No camera found on this device.';
+          }
+          const camera = cameras[cameras.length - 1];
+
+          // Create stream and get video track
+          navigator.mediaDevices.getUserMedia({
+            video: {
+              deviceId: camera.deviceId,
+              facingMode: ['user', 'environment'],
+              height: { ideal: 1080 },
+              width: { ideal: 1920 }
+            }
+          }).then(stream => {
+            const track = stream.getVideoTracks()[0];
+
+            //Create image capture object and get camera capabilities
+            const imageCapture = new ImageCapture(track)
+            const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
+
+              //todo: check if camera has a torch
+
+              //let there be light!
+              const btn = document.querySelector('.switch');
+              btn.addEventListener('click', function () {
+                track.applyConstraints({
+                  advanced: [{ torch: true }]
+                });
+              });
+            });
+          });
+        });
+      } catch(e) {
+        document.getElementsByTagName('button')[0].remove();
+        document.body.appendChild(createWarning(e));
+      }
+    }
+
+    function createWarning(e) {
+      const template = document.getElementsByTagName('template')[0];
+      template.innerHTML = `<div>${e.message}</div>`;
+      return template.content;
+    }
+  </script>
+</body>
+</html>
