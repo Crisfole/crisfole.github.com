@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
 </head>
 <body>
-  <button onclick='toggleFlashlight()'></button>
+  <button></button>
   <template></template>
   <script>
-    function toggleFlashlight() {
+    function setupButtonHandler() {
       try {
         navigator.mediaDevices.enumerateDevices().then(devices => {
 
@@ -40,7 +40,7 @@
               //todo: check if camera has a torch
 
               //let there be light!
-              const btn = document.querySelector('.switch');
+              const btn = document.getElementsByTagName('button')[0];
               btn.addEventListener('click', function () {
                 track.applyConstraints({
                   advanced: [{ torch: true }]
@@ -60,6 +60,8 @@
       template.innerHTML = `<div>${e.message}</div>`;
       return template.content;
     }
+
+    setupButtonHandler();
   </script>
 </body>
 </html>
