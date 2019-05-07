@@ -42,9 +42,11 @@
               //let there be light!
               const btn = document.getElementsByTagName('button')[0];
               btn.addEventListener('click', function () {
-                track.applyConstraints({
-                  advanced: [{ torch: true }]
-                });
+                track.applyConstraints({ advanced: [{ torch: true }] })
+                  .catch(e => {
+                    btn.remove();
+                    document.body.appendChild(createWarning(e));
+                  });
               });
             });
           });
