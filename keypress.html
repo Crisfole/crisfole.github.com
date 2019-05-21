@@ -1,0 +1,22 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+</head>
+<body>
+  <div>Button: <span id='pressed'>None</span></div>
+
+  <script>
+    (function() {
+      const pressed = document.getElementById('pressed');
+      document.body.addEventListener('keydown', evt => {
+        pressed.nodeText = evt.key;
+      });
+    })();
+  </script>
+</body>
+</html>
