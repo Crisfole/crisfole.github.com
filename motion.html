@@ -1,0 +1,25 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+</head>
+<body>
+  <pre id='motion'>None</pre>
+
+  <script>
+    (function() {
+      const motion = document.getElementById('motion');
+      window.addEventListener('devicemotion', function(event) {
+        motion.textContent = JSON.stringify({
+          acceleration: event.acceleration,
+          rotationRate: event.rotationRate,
+        }, null, 2);
+      });
+    })();
+  </script>
+</body>
+</html>
