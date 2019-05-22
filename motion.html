@@ -13,12 +13,11 @@
   <script>
     (function() {
       const motion = document.getElementById('motion');
-      window.addEventListener('devicemotion', function(event) {
-        motion.textContent = JSON.stringify({
-          acceleration: event.acceleration,
-          rotationRate: event.rotationRate,
-        }, null, 2);
+      const accel = new Accelerometer();
+      accel.addEventListener('reading', function(e) {
+        motion.textContent = JSON.stringify(e, null, 2);
       });
+      accel.start();
     })();
   </script>
 </body>
