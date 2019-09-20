@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <style>
+            html, body {
+                height:100%;
+            }
+            body,
+            figure {
+                margin:0;
+                padding:0;
+                border:0;
+            }
+
+            figure {
+                position:fixed;
+                top:24px;
+                bottom:24px;
+                width:100%;
+                height:auto;
+                overflow:hidden;
+            }
+
+            span {
+                padding:0 0.5em;
+                background:white;
+                line-height:2em;
+                font-size:12px;
+                z-index:100;
+                position:fixed;
+                font-family:sans-serif;
+                color:red;
+            }
+            
+
+            span.n {
+                top:0;
+            }
+
+            span.e {
+                left:0;
+            }
+            span.s {
+                bottom:0;
+            }
+            span.w {
+                right:0;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <figure></figure>
+        <span class="n e"></span>
+        <span class="n w"></span>
+        <span class="s w"></span>
+        <span class="s e"></span>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
+        <script>mapboxgl.accessToken = 'pk.eyJ1IjoibGVtZXN1cmllciIsImEiOiJWcEhvYVNjIn0.aSEzIDJPY_ujnCkPDgS9Aw';</script>
+        <script>
+            var root = document.documentElement;
+            var map = new mapboxgl.Map({
+                container: root.querySelector("figure"), // container id
+                attributionControl:false,
+                style: 'mapbox://styles/mapbox/satellite-streets-v11', // stylesheet location
+                center: [-98.5795, 39.828175],
+                zoom: 5, // starting zoom
+                dragRotate:false,
+                pitchWithRotate: false
+            });
+            var ne = root.querySelector("span.n.e");
+            var sw = root.querySelector("span.s.w");
+            var se = root.querySelector("span.s.e");
+            var nw = root.querySelector("span.n.w");
+            function displayBounds(map) {
+                var bounds = map.getBounds();
+                ne.textContent = bounds.getNorthEast().toString();
+                nw.textContent = bounds.getNorthWest().toString();
+                se.textContent = bounds.getSouthEast().toString();
+                sw.textContent = bounds.getSouthWest().toString();
+            }
+            displayBounds(map);
+            map.on("moveend", function(e){
+                displayBounds(map);
+            });
+            map.on("zoomend", function(e){
+                displayBounds(map);
+            });
+
+        </script>
+    </body>
+</html>
