@@ -64,7 +64,24 @@
             var map = new mapboxgl.Map({
                 container: root.querySelector("figure"), // container id
                 attributionControl:false,
-                style: 'mapbox://styles/mapbox/satellite-streets-v11', // stylesheet location
+                //style: 'mapbox://styles/mapbox/satellite-streets-v11', // stylesheet location
+                style: {
+                    "version": 8,
+                    "sources": {
+                    "raster-tiles": {
+                        "type": "raster",
+                        "tiles": ["https://sat-cdn1.apple-mapkit.com/tile?style=7&size=1&scale=2&z={z}&x={x}&y={y}&v=5033&accessKey=1569017010_8358276537565144912_%2F_IMSP8HY4h05yNzqgs830QdITC87FcJ8csVHtx4GCLJQ%3D"],
+                        "tileSize": 256,
+                    }
+                    },
+                    "layers": [{
+                        "id": "simple-tiles",
+                    "type": "raster",
+                    "source": "raster-tiles",
+                    "minzoom": 0,
+                    "maxzoom": 22
+                    }]
+                    },
                 center: [-98.5795, 39.828175],
                 zoom: 5, // starting zoom
                 dragRotate:false,
