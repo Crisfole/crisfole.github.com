@@ -11,7 +11,7 @@
     window.textbox.value = value;
   }
   setSession(sessionStorage.value);
-  document.textbox.addEventListener('input', ev => {
+  window.textbox.addEventListener('input', ev => {
     setSession(ev.target.value);
   });
 </script>
