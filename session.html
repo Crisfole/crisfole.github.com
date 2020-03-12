@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<h1>Testing Sessions</h1>
+
+<div id='box'></div>
+<input id='textbox' type=text value='' />
+
+<script>
+  function setSession(value) {
+    sessionStorage.value = value;
+    document.box.textContent = value;
+    document.textbox.value = value;
+  }
+  setSession(sessionStorage.value);
+  document.textbox.addEventListener('input', ev => {
+    setSession(ev.target.value);
+  });
+</script>
