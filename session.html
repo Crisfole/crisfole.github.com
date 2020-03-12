@@ -3,15 +3,28 @@
 
 <div id='box'></div>
 <input id='textbox' type=text value='' />
+<button id=clearButton>Clear</button>
 
 <script>
   function setSession(value) {
-    sessionStorage.value = value;
-    window.box.textContent = value;
-    window.textbox.value = value;
+    if (value) {
+      sessionStorage.value = value;
+    } else {
+      delete sessionStorage.value;
+    }
+    window.box.textContent = value || '';
+    window.textbox.value = value || '';
   }
-  setSession(sessionStorage.value);
+
+  if (sessionStorage.value) {
+    setSession(sessionStorage.value);
+  }
+
   window.textbox.addEventListener('input', ev => {
     setSession(ev.target.value);
   });
+
+  window.clearButton.addEventListener('click', ev => {
+    setSession(undefined);
+  })
 </script>
