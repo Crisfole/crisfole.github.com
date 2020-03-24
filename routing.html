@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<!-- Internet Cruft: -->
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='robots' content='noindex, nofollow' />
+<meta name='mobile-web-app-capable' content='yes' />
+<meta name='apple-mobile-web-app-capable' content='yes' />
+<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+<meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover' />
+
+<script type="module">
+  import page from "//unpkg.com/page/page.mjs";
+
+  page('/:property', ctx => {
+    window.content.textContent = `Property: ${ctx.params.property}`;
+  });
+  page('/', () => {
+    window.content.textContent = 'Home';
+  });
+  page.base("/routing.html");
+  page();
+</script>
+
+<nav>
+  <ul>
+    <li><a href=/>Home</a></li>
+    <li><a href=/p1>Property 1</a></li>
+    <li><a href=/p2>Property 2</a></li>
+  </ul>
+</nav>
+<div id='content'>Home</div>
