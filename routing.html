@@ -18,7 +18,9 @@
     window.content.textContent = 'Home';
   });
   page.base("/routing.html");
-  page();
+  document.addEventListener('ready', () => {
+    page();
+  });
 </script>
 
 <nav>
