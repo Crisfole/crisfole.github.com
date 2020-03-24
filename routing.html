@@ -10,18 +10,6 @@
 <meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover' />
 
 <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-<script>
-  page('/:property', ctx => {
-    window.content.textContent = `Property: ${ctx.params.property}`;
-  });
-  page('/', () => {
-    window.content.textContent = 'Home';
-  });
-  page.base("/routing.html");
-  document.addEventListener('ready', () => {
-    page();
-  });
-</script>
 
 <nav>
   <ul>
@@ -31,3 +19,14 @@
   </ul>
 </nav>
 <div id='content'>Home</div>
+
+<script>
+  page('/:property', ctx => {
+    window.content.textContent = `Property: ${ctx.params.property}`;
+  });
+  page('/', () => {
+    window.content.textContent = 'Home';
+  });
+  page.base("/routing.html");
+  page();
+</script>
