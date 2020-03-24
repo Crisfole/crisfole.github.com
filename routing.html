@@ -9,9 +9,8 @@
 <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
 <meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover' />
 
-<script type="module">
-  import page from "//unpkg.com/page/page.mjs";
-
+<script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+<script>
   page('/:property', ctx => {
     window.content.textContent = `Property: ${ctx.params.property}`;
   });
