@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<form>
+  <input id=camera type=file accept=image/* capture=environment>
+  <label>Supported Formats: <strong id=formats></strong></label>
+  <hr />
+  <textarea id=output></textarea>
+</form>
+  <script>
+    const barcodeDetector = new BarcodeDetector();
+
+    const formats = document.getElementById('formats');
+    BarcodeDetector.getSupportedFormats().then(fmts => {
+      formats.textContent = fmts.join(", ");
+    });
+
+    const out = document.getElementById('output');
+    document.getElementById('camera').addEventListener('input', evt => {
+      const file = evt.files[0];
+      barcodeDetector.detect(file).then(x => {
+        out.textContent = x.join("\n");
+      });
+    });
+  </script>
