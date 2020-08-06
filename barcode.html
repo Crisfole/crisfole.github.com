@@ -4,10 +4,8 @@
   <input id=camera type=file accept=image/* capture=environment>
   <label>Format: <select id=formats></select></label>
   <hr />
-  <label>Results</label>
-  <div id=result-out></div>
-  <label>Errors</label>
-  <div id=error-out></div>
+  <label>Output</label>
+  <pre id=out></pre>
 </form>
   <script>
     const formats = document.getElementById('formats');
@@ -16,16 +14,19 @@
     });
 
     const out = document.getElementById('result-out');
-    const err = document.getElementById('error-out');
+    function log(x) {
+      out.textContent += ("\n" + x);
+    }
     document.getElementById('camera').addEventListener('input', evt => {
       const file = evt.target.files[0];
-      debugger;
-      new BarcodeDetector({ formats: [ formats.value ] }).detect(file)
+      log("Detecting Barcode of format " + formats.value);
+      new BarcodeDetector({ formats: [ formats.value ] })
+        .detect(file)
         .then(x => {
-          out.textContent = x.join("\n");
+          log(x.join(', '));
         })
-      .catch(err => {
-        err.textContent = err.toString();
-      });
+        .catch(err => {
+          log(err.toString)
+        });
     });
   </script>
