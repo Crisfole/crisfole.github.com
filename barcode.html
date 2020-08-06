@@ -20,13 +20,17 @@
     document.getElementById('camera').addEventListener('input', evt => {
       const file = evt.target.files[0];
       log("Detecting Barcode of format " + formats.value);
-      new BarcodeDetector({ formats: [ formats.value ] })
-        .detect(file)
-        .then(x => {
-          log(x.join(', '));
-        })
-        .catch(err => {
-          log(err.toString)
-        });
+      try {
+        new BarcodeDetector({ formats: [ formats.value ] })
+          .detect(file)
+          .then(x => {
+            log(x.join(', '));
+          })
+          .catch(err => {
+            log(err.toString());
+          });
+      } catch (err) {
+        log(err.toString());
+      }
     });
   </script>
