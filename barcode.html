@@ -16,7 +16,7 @@
 
     const out = document.getElementById('output');
     document.getElementById('camera').addEventListener('input', evt => {
-      const file = evt.files[0];
+      const file = evt.target.files[0];
       barcodeDetector.detect(file).then(x => {
         out.textContent = x.join("\n");
       });
