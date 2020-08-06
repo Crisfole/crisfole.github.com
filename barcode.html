@@ -2,7 +2,7 @@
 
 <form>
   <input id=camera type=file accept=image/* capture=environment>
-  <label>Supported Formats: <strong id=formats></strong></label>
+  <label>Format: <select id=formats></select></label>
   <hr />
   <label>Results</label>
   <div id=result-out></div>
@@ -10,18 +10,17 @@
   <div id=error-out></div>
 </form>
   <script>
-    const barcodeDetector = new BarcodeDetector();
-
     const formats = document.getElementById('formats');
     BarcodeDetector.getSupportedFormats().then(fmts => {
-      formats.textContent = fmts.join(", ");
+      formats.innerHTML = fmts.map(fmt => `<option>${fmt}</option>`).join("");
     });
 
     const out = document.getElementById('result-out');
     const err = document.getElementById('error-out');
     document.getElementById('camera').addEventListener('input', evt => {
       const file = evt.target.files[0];
-      barcodeDetector.detect(file)
+      debugger;
+      new BarcodeDetector({ formats: [ formats.value ] }).detect(file)
         .then(x => {
           out.textContent = x.join("\n");
         })
