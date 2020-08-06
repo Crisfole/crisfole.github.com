@@ -4,7 +4,8 @@
   <input id=camera type=file accept=image/* capture=environment>
   <label>Supported Formats: <strong id=formats></strong></label>
   <hr />
-  <textarea id=output></textarea>
+  <textarea id=result-out></textarea>
+  <textarea id=error-out></textarea>
 </form>
   <script>
     const barcodeDetector = new BarcodeDetector();
@@ -14,11 +15,16 @@
       formats.textContent = fmts.join(", ");
     });
 
-    const out = document.getElementById('output');
+    const out = document.getElementById('result-out');
+    const err = document.getElementById('error-out');
     document.getElementById('camera').addEventListener('input', evt => {
       const file = evt.target.files[0];
-      barcodeDetector.detect(file).then(x => {
-        out.textContent = x.join("\n");
+      barcodeDetector.detect(file)
+        .then(x => {
+          out.value = x.join("\n");
+        })
+      .catch(err => {
+        err.value = err.toString();
       });
     });
   </script>
