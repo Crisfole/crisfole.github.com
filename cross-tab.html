@@ -12,7 +12,7 @@
   const updateLocalStorage = document.getElementById('updateLocalStorage');
   
   setInterval(function() {
-    crossTabInput.value = localStorage.crossTab;
+    document.title = crossTabInput.value = localStorage.crossTab || '';
   }, 2000);
   
   updateLocalStorage.addEventListener('click', function() {
