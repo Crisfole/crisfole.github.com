@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<div>
+  <label>localStorage.crossTab<input readonly id=crossTab value='LOADING' /></label>
+  <label>New Value<input id=update /></label>
+  <button id='updateLocalStorage'>Update Local Storage</button>
+</div>
+
+<script>
+  const crossTabInput = document.getElementById('crossTab');
+  const updateInput = document.getElementById('update');
+  const updateLocalStorage = document.getElementById('updateLocalStorage');
+  
+  setInterval(function() {
+    crossTabInput.value = localStorage.crossTab;
+  }, 2000);
+  
+  updateLocalStorage.addEventListener('click', function() {
+    crossTabInput.value = localStorage.crossTab = updateInput.value;
+    updateInput.value = '';
+  });
+</script>
