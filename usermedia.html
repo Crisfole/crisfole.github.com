@@ -38,7 +38,7 @@
       const imgData = await createImageBitmap(videoElement);
       canvasElement.width = imgData.width;
       canvasElement.height = imgData.height;
-      canvasElement.putImageData(imgData, 0, 0);
+      canvasElement.getContext('2d').putImageData(imgData, 0, 0);
     });
   </script>
 </body>
