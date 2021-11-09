@@ -20,7 +20,7 @@
     const videoElement = document.getElementById('video');
     const imgElement = document.getElementById('image');
 
-    startButton.addEventHandler('click', async evt => {
+    startButton.addEventListener('click', async evt => {
       startButton.disabled = true;
 
       const stream = await navigator.mediaDevices.getUserMedia({
