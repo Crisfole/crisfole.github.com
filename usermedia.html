@@ -12,13 +12,13 @@
   <hr />
   <video id='video' autoplay muted playsinline></video>
   <hr/>
-  <img id='image' src='https://picsum.photos/200/300' />
+  <canvas id='canvas' />
   <button id=capture>Capture</button>
   <script>
     const startButton = document.getElementById('start');
     const captureButton = document.getElementById('capture');
     const videoElement = document.getElementById('video');
-    const imgElement = document.getElementById('image');
+    const canvasElement = document.getElementById('canvas');
 
     startButton.addEventListener('click', async evt => {
       startButton.disabled = true;
