@@ -8,10 +8,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
 </head>
 <body>
-  <button></button>
-  <template></template>
+  <button id=start>Start Stream</button>
+  <hr />
+  <video id='video' autoplay muted playsinline />
+  <hr/>
+  <img id='image' src='https://picsum.photos/200/300' />
+  <button id=capture>Capture</button>
   <script>
-    function setupButtonHandler() {
+    function async setupButtonHandler() {
+      
       try {
         navigator.mediaDevices.enumerateDevices().then(devices => {
 
@@ -29,7 +34,8 @@
               facingMode: ['user', 'environment'],
               height: { ideal: 1080 },
               width: { ideal: 1920 }
-            }
+            },
+            audio: false,
           }).then(stream => {
             const track = stream.getVideoTracks()[0];
 
@@ -57,13 +63,24 @@
       }
     }
 
-    function createWarning(e) {
-      const template = document.getElementsByTagName('template')[0];
-      template.innerHTML = `<div>${e.message}</div>`;
-      return template.content;
-    }
+    const startButton = document.getElementById('start');
+    const captureButton = document.getElementById('capture');
+    const videoElement = document.getElementById('video');
+    const imgElement = document.getElementById('image');
 
-    setupButtonHandler();
+    startButton.addEventHandler('click', async evt => {
+      startButton.disabled = true;
+
+      const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              facingMode: ['user', 'environment'],
+              height: { ideal: 1080 },
+              width: { ideal: 1920 }
+            },
+            audio: false,
+          });
+      videoElement.srcObject = stream;
+    });
   </script>
 </body>
 </html>
