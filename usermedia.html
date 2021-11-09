@@ -10,9 +10,9 @@
 <body>
   <button id=start>Start Stream</button>
   <hr />
-  <video id='video' autoplay muted playsinline></video>
+  <video id='video' autoplay muted playsinline width=400px height=400px style="object-fit: cover"></video>
   <hr/>
-  <canvas id='canvas' />
+  <canvas id='canvas'></canvas>
   <button id=capture>Capture</button>
   <script>
     const startButton = document.getElementById('start');
@@ -32,6 +32,13 @@
             audio: false,
           });
       videoElement.srcObject = stream;
+    });
+    
+    captureButton.addEventListener('click', async evt => {
+      const imgData = await createImageBitmap(videoElement);
+      canvasElement.width = imgData.width;
+      canvasElement.height = imgData.height;
+      canvasElement.putImageData(imgData, 0, 0);
     });
   </script>
 </body>
