@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, height=device-height" />
+
+    <title>Super Weird CSS Quirk</title>
+
+    <script>
+      function toggleContentOverflow() {
+        const isOn = document.body.classList.toggle("content-overflow");
+        contentOverflow.textContent = isOn ? "On" : "Off";
+      }
+
+      function toggleMainScroll() {
+        const isOn = document.body.classList.toggle("overflow-scroll");
+        overflowScroll.textContent = isOn ? "On" : "Off";
+      }
+    </script>
+
+    <style>
+      html, body {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+      header, main, footer {
+        padding: 1rem 2rem;
+      }
+      main {
+        padding-block-start: 0;
+        padding-block-end: 0;
+      }
+      header, footer {
+        background-color: #ffe;
+      }
+      header {
+        border-bottom: 1px solid #eee;
+      }
+      footer {
+        border-top: 1px solid #eee;
+      }
+      section {
+        background-color: #ddd;
+        padding: 2rem;
+        margin: 2rem auto;
+      }
+
+      body.content-overflow section {
+        width: 50rem;
+      }
+
+      body.overflow-scroll main {
+        overflow: auto;
+      }
+    </style>
+	</head>
+	<body class="content-overflow">
+    <header>
+      Header Content
+    </header>
+    <main>
+      <section>
+        <h1>Too Large Card</h1>
+      </section>
+      <aside style='margin-top: 1em'>
+        <button type="button" onclick="toggleContentOverflow(event)">"section { width: var(--size-15); }" <span id="contentOverflow">On</span></button>
+      </aside>
+      <aside style='margin-top: 1em'>
+        <button type="button" onclick="toggleMainScroll(event)">"main { overflow: scroll }" <span id="overflowScroll">Off</span></button>
+      </aside>
+      <p>
+        To see this quirk:
+      </p>
+      <ol>
+        <li>Open this page in private mode (to avoid extensions inserting elements).</li>
+        <li>Open the developer tools</li>
+        <li>Turn on the device emulator</li>
+        <li>refresh the page</li>
+        <li>Click the 'section { width: var(--size-15); }' button three times.</li> 
+      </ol>
+    </main>
+    <footer>
+      Footer Content
+    </footer>
+	</body>
+</html>
